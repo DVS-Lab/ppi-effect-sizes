@@ -19,7 +19,6 @@ OUTPUT=${OUTPUTDIR}/smoothing
 #check output
 aromaoutput=${OUTPUT}.feat/ICA_AROMA/denoised_func_data_nonaggr.nii.gz
 if [ -e $aromaoutput ]; then
-	#echo "skipping existing output to save money!"
 	exit
 else
 	echo "re-running $subj on $task and run $run"
@@ -56,5 +55,3 @@ bet $inputmask $aromamask -f 0.3 -n -m -R
 
 #running AROMA
 python ${basedir}/ICA-AROMA-master/ICA_AROMA_Nonormalizing.py -in $myinput -out $myoutput -mc $mcfile -m ${aromamask}_mask.nii.gz
-
-

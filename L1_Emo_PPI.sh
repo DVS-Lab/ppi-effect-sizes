@@ -1,14 +1,12 @@
 #!/bin/bash
 
+basedir=`pwd`
+MAINDATADIR=${basedir}/data
+MAINOUTPUTDIR=${basedir}/fsl
+
 task=EMOTION
 run=$1
 subj=$2
-
-basedir=`pwd`
-cd ..
-MAINDATADIR=/s3/hcp
-MAINOUTPUTDIR=`pwd`/Analysis
-cd $basedir
 
 OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Emotion_PPI
 DATA=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Emotion_Act.feat/filtered_func_data.nii.gz
@@ -16,6 +14,7 @@ NVOLUMES=`fslnvols ${DATA}`
 
 # checking L1 output
 if [ -e ${OUTPUT}.feat/cluster_mask_zstat7.nii.gz ]; then
+  echo "output exists, skipping...."
   exit
 else
   rm -rf ${OUTPUT}.feat

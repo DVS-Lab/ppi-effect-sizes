@@ -24,9 +24,14 @@ hc_diff = setdiff(hc2,oldsubs);
 hc_int = intersect(hc2,oldsubs);
 max_group = length(alc2);
 n_needed = max_group - length(hc_int);
-hc_new = [hc_int; randsample(hc_diff,n_needed)];
-dlmwrite('hc_new.txt',sort(hc_new),'precision','%d')
+extra_hc = randsample(hc_diff,n_needed);
+hc_new = [hc_int; extra_hc];
+dlmwrite('hc2_final.txt',sort(hc_new),'precision','%d')
 
 % make list with all new/needed subs
-dlmwrite('all_new_subs.txt',[alc_diff; dep_diff; hc_new],'precision','%d')
+dlmwrite('all_new_subs.txt',[alc_diff; dep_diff; extra_hc],'precision','%d')
+
+% make one list for all Michelle subjects
+dlmwrite('Michelle_AllSubs_n146.txt',sort([alc2; dep2; hc_new]),'precision','%d')
+
 

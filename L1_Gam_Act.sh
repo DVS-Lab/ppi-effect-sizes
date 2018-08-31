@@ -4,11 +4,11 @@ basedir=`pwd`
 MAINDATADIR=/data/projects/ppi-effect-sizes/data
 MAINOUTPUTDIR=/data/projects/ppi-effect-sizes/fsl
 
-task=EMOTION
+task=GAMBLING
 run=$1
 subj=$2
 
-OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Emotion_Act
+OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Gam_Act
 DATA=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/smoothing.feat/ICA_AROMA/denoised_func_data_nonaggr.nii.gz
 NVOLUMES=`fslnvols ${DATA}`
 
@@ -21,17 +21,16 @@ else
 fi
 
 #EV files
-EVFEAR=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs/fear.txt
-EVNEUT=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs/neut.txt
+EVDIR=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs
 
-#find and replace: run feat
-ITEMPLATE=${basedir}/templates/L1_Emo_Act.fsf
-OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Emotion_Act.fsf
+
+#find and replace: run feat for smoothing
+ITEMPLATE=${basedir}/templates/L1_Gam_Act.fsf
+OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Gam_Act.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
 -e 's@DATA@'$DATA'@g' \
 -e 's@NVOLUMES@'$NVOLUMES'@g' \
--e 's@EVFEAR@'$EVFEAR'@g' \
--e 's@EVNEUT@'$EVNEUT'@g' \
+-e 's@EVDIR@'$EVDIR'@g' \
 <$ITEMPLATE> $OTEMPLATE
 feat $OTEMPLATE
 

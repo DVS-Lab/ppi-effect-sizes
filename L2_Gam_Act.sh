@@ -6,9 +6,9 @@ MAINOUTPUTDIR=${basedir}/fsl
 
 subj=$1
 
-INPUT01=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_WM_LR/L1_WM_Act.feat
-INPUT02=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_WM_RL/L1_WM_Act.feat
-OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_WM_Act
+INPUT01=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_GAMBLING_LR/L1_Gam_Act.feat
+INPUT02=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_GAMBLING_RL/L1_Gam_Act.feat
+OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Gam_Act
 
 # checking L2 output
 NCOPES=2 #check last cope since they are done sequentially
@@ -21,8 +21,8 @@ fi
 
 
 #find and replace
-ITEMPLATE=${basedir}/templates/L2_WM_Act.fsf
-OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_WM_Act.fsf
+ITEMPLATE=${basedir}/templates/L2_Gam_Act.fsf
+OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Gam_Act.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
 -e 's@INPUT01@'$INPUT01'@g' \
 -e 's@INPUT02@'$INPUT02'@g' \

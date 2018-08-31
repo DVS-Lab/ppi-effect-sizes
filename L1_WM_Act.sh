@@ -1,8 +1,8 @@
 #!/bin/bash
 
 basedir=`pwd`
-MAINDATADIR=${basedir}/data
-MAINOUTPUTDIR=${basedir}/fsl
+MAINDATADIR=/data/projects/ppi-effect-sizes/data
+MAINOUTPUTDIR=/data/projects/ppi-effect-sizes/fsl
 
 task=WM
 run=$1
@@ -13,7 +13,7 @@ DATA=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/smoothin
 NVOLUMES=`fslnvols ${DATA}`
 
 # checking L1 output
-if [ -e ${OUTPUT}.feat/stats/cope2.nii.gz ]; then
+if [ -e ${OUTPUT}.feat/cluster_mask_zstat1.nii.gz ]; then
   echo "output exists, skipping...."
   exit
 else
@@ -22,6 +22,10 @@ fi
 
 #EV files
 EVDIR=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs
+rm -rf ${EVDIR}/2bk_all.txt ${EVDIR}/0bk_all.txt
+cat ${EVDIR}/2bk_body.txt ${EVDIR}/2bk_faces.txt ${EVDIR}/2bk_places.txt ${EVDIR}/2bk_tools.txt > ${EVDIR}/2bk_all.txt
+cat ${EVDIR}/0bk_body.txt ${EVDIR}/0bk_faces.txt ${EVDIR}/0bk_places.txt ${EVDIR}/0bk_tools.txt > ${EVDIR}/0bk_all.txt
+
 
 #find and replace: run feat for smoothing
 ITEMPLATE=${basedir}/templates/L1_WM_Act.fsf

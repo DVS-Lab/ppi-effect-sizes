@@ -13,7 +13,7 @@ OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Social_Act
 # checking L2 output
 NCOPES=2 #check last cope since they are done sequentially
 if [ -e ${OUTPUT}.gfeat/cope${NCOPES}.feat/cluster_mask_zstat1.nii.gz ]; then
-  echo "output exists...."
+  #echo "output exists...."
   exit
 else
   rm -rf ${OUTPUT}.gfeat

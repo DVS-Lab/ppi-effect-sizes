@@ -1,10 +1,9 @@
 #!/bin/bash
 
 BASEDIR=`pwd`
-cd ..
-MAINDATADIR=`pwd`/Data
-MAINOUTPUTDIR=`pwd`/Analysis
-cd $BASEDIR
+
+MAINDATADIR=`pwd`/data
+MAINOUTPUTDIR=`pwd`/fsl
 
 ##bash L2_Emotion_PPI.sh $subj $task $run
 subj=$1

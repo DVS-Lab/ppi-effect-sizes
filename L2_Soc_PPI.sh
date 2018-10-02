@@ -1,10 +1,8 @@
 #!/bin/bash
 
-BASEDIR=`pwd`
-cd ..
-MAINDATADIR=`pwd`/Data
-MAINOUTPUTDIR=`pwd`/Analysis
-cd $BASEDIR
+basedir=`pwd`
+MAINDATADIR=${basedir}/data
+MAINOUTPUTDIR=${basedir}/fsl
 
 ##bash L2_Social_PPI.sh $subj $task $run
 subj=$1
@@ -30,7 +28,7 @@ for run in LR RL; do
 done
 
 #find and replace
-ITEMPLATE=${BASEDIR}/templates/L2_Soc_PPI.fsf
+ITEMPLATE=${basedir}/templates/L2_Soc_PPI.fsf
 OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Soc_PPI.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
 -e 's@INPUT1@'$INPUT1'@g' \

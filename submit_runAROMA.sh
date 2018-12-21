@@ -9,7 +9,7 @@ for task in WM SOCIAL EMOTION GAMBLING; do
 
   		#Manages the number of jobs and cores
   		SCRIPTNAME=runAROMA.sh
-  		NCORES=12
+  		NCORES=8
   		while [ $(ps -ef | grep -v grep | grep $SCRIPTNAME | wc -l) -ge $NCORES ]; do
   	  		sleep 1m
   		done

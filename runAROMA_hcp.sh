@@ -57,3 +57,4 @@ bet $inputmask $aromamask -f 0.3 -n -m -R
 
 #running AROMA
 python ${basedir}/ICA-AROMA-master/ICA_AROMA_Nonormalizing.py -in $myinput -out $myoutput -mc $mcfile -m ${aromamask}_mask.nii.gz
+

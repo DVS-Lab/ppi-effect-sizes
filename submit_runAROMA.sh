@@ -1,12 +1,12 @@
 #!/bin/bash
 
-for task in GAMBLING WM SOCIAL EMOTION; do
+for task in EMOTION GAMBLING WM SOCIAL; do
   for subj in `cat EuniceSubs.txt`; do
   	for RUN in LR RL; do
 
   		#Manages the number of jobs and cores
   		SCRIPTNAME=runAROMA_hcp.sh
-  		NCORES=18
+  		NCORES=32
   		while [ $(ps -ef | grep -v grep | grep $SCRIPTNAME | wc -l) -ge $NCORES ]; do
   	  		sleep 1m
   		done

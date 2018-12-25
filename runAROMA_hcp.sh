@@ -22,7 +22,7 @@ if [ -e $aromaoutput ]; then
 	#echo "data exists: $subj on $task and run $run"
 	exit
 else
-	#echo "re-running $subj on $task and run $run" >> re-runAROMA.log
+	echo "re-running $subj on $task and run $run" >> re-runAROMA.log
 	#echo "re-running $subj on $task and run $run"
 	rm -rf ${OUTPUT}.feat
 fi

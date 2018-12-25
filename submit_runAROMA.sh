@@ -11,7 +11,7 @@ for task in SOCIAL EMOTION GAMBLING WM; do
   	  		sleep 1m
   		done
   		bash runAROMA_hcp.sh $task $RUN $subj &
-  		sleep 5s
+
 
   	done
   done

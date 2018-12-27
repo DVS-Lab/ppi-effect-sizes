@@ -11,6 +11,7 @@ fname = fullfile(basedir,'headmotion_run.csv');
 fid1 = fopen(fname,'w');
 fprintf(fid1,'subj,task,run,abs_mean,rel_mean,pct_removed\n');
 
+sub_data = zeros(length(subs),3,4);
 
 for t = 1:length(tasks)
     task = tasks{t};
@@ -19,8 +20,8 @@ for t = 1:length(tasks)
     fname = fullfile(basedir,['headmotion_task-' task '.csv']);
     fid2 = fopen(fname,'w');
     fprintf(fid2,'subj,abs_mean,rel_mean,pct_removed\n');
-sub_mat =  zeros(4,3); % place to store the data
-for s = 1:length(subs)
+    %sub_mat =  zeros(4,3); % place to store the data
+    for s = 1:length(subs)
         subnum = subs(s);
         idx = 0;
         
@@ -65,7 +66,22 @@ for s = 1:length(subs)
             
         end
         fprintf(fid2,'%d,%f,%f,%f\n',subnum,nanmean(task_mat));
+        sub_data(s,:,t) = nanmean(task_mat);
     end
     fclose(fid2);
 end
 fclose(fid1);
+
+sub_means = nanmean(sub_data,3);
+outliers = isoutlier(sub_means,'quartiles');
+outliers = any(outliers,2);
+fname = fullfile(basedir,'headmotion_TaskAvg.csv');
+fid = fopen(fname,'w');
+fprintf(fid,'subj,exclude,abs_mean,rel_mean,pct_removed\n');
+for s = 1:length(subs)
+    subnum = subs(s);
+    fprintf(fid,'%d,%d,%f,%f,%f\n',subnum,outliers(s),sub_means(s,:));
+end
+fclose(fid);
+
+

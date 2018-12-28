@@ -11,11 +11,12 @@ INPUT02=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_SOCIAL_RL/L1_Social_
 OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Social_Act
 
 # checking L2 output
-NCOPES=2 #check last cope since they are done sequentially
+NCOPES=4 #check last cope since they are done sequentially
 if [ -e ${OUTPUT}.gfeat/cope${NCOPES}.feat/cluster_mask_zstat1.nii.gz ]; then
   #echo "output exists...."
   exit
 else
+	echo "missing output for $subj SOCIAL" >> re-runL2.log
   rm -rf ${OUTPUT}.gfeat
 fi
 

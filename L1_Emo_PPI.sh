@@ -25,7 +25,7 @@ EVFEAR=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs/fear
 EVNEUT=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs/neut.txt
 
 #generate mask's timecourse
-MASK=${basedir}/Masks/rT1_Amygdala_Seed.nii
+MASK=${basedir}/Masks/Amyg_func.nii.gz
 TIMECOURSE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/my_timecourse.txt
 fslmeants -i $DATA -o $TIMECOURSE -m $MASK
 

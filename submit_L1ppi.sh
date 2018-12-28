@@ -1,18 +1,18 @@
 #!/bin/bash
 
 
-for task in WM Emo Soc; do
-  for subj in `cat sublist`; do
+for task in Gam WM Emo Soc; do
+  for subj in `cat EuniceSubs.txt`; do
   	for RUN in LR RL; do
 
   		#Manages the number of jobs and cores
   		SCRIPTNAME=L1_${task}_PPI.sh
-  		NCORES=24
+  		NCORES=32
   		while [ $(ps -ef | grep -v grep | grep $SCRIPTNAME | wc -l) -ge $NCORES ]; do
   	  		sleep 1m
   		done
   		bash $SCRIPTNAME $RUN $subj &
-  		sleep 5s
+  		sleep 1s
 
   	done
   done

@@ -8,7 +8,6 @@ task=SOCIAL
 run=$1
 subj=$2
 
-
 OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Social_PPI
 DATA=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_Social_Act.feat/filtered_func_data.nii.gz
 NVOLUMES=`fslnvols ${DATA}`
@@ -26,7 +25,7 @@ EVMENTAL=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs/me
 EVRND=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs/rnd.txt
 
 #generate mask's timecourse
-MASK=${basedir}/Masks/rT1_vPAC_Seed.nii
+MASK=${basedir}/Masks/TPJp_func.nii.gz
 TIMECOURSE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/my_timecourse.txt
 fslmeants -i $DATA -o $TIMECOURSE -m $MASK
 

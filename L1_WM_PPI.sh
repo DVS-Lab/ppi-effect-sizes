@@ -4,7 +4,6 @@ basedir=`pwd`
 MAINDATADIR=${basedir}/data
 MAINOUTPUTDIR=${basedir}/fsl
 
-
 task=WM
 run=$1
 subj=$2
@@ -14,7 +13,7 @@ DATA=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_WM_Ac
 NVOLUMES=`fslnvols ${DATA}`
 
 # checking L1 output
-if [ -e ${OUTPUT}.feat/stats/cope7.nii.gz ]; then
+if [ -e ${OUTPUT}.feat/cluster_mask_zstat1.nii.gz ]; then
   echo "output exists, skipping...."
   exit
 else
@@ -25,7 +24,7 @@ fi
 EVDIR=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs
 
 #generate mask's timecourse
-MASK=${basedir}/Masks/rT1_DLPFC_Seed.nii
+MASK=${basedir}/Masks/MFG_func.nii.gz
 TIMECOURSE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/my_timecourse.txt
 fslmeants -i $DATA -o $TIMECOURSE -m $MASK
 

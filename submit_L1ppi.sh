@@ -1,10 +1,9 @@
 #!/bin/bash
 
 
-for task in Gam WM Emo Soc; do
+for task in Gam Emo Soc WM; do
   for subj in `cat EuniceSubs.txt`; do
   	for RUN in LR RL; do
-
   		#Manages the number of jobs and cores
   		SCRIPTNAME=L1_${task}_PPI.sh
   		NCORES=32

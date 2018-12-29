@@ -22,6 +22,9 @@ fi
 
 #EV files
 EVDIR=${MAINDATADIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/EVs
+rm -rf ${EVDIR}/2bk_all.txt ${EVDIR}/0bk_all.txt
+cat ${EVDIR}/2bk_body.txt ${EVDIR}/2bk_faces.txt ${EVDIR}/2bk_places.txt ${EVDIR}/2bk_tools.txt > ${EVDIR}/2bk_all.txt
+cat ${EVDIR}/0bk_body.txt ${EVDIR}/0bk_faces.txt ${EVDIR}/0bk_places.txt ${EVDIR}/0bk_tools.txt > ${EVDIR}/0bk_all.txt
 
 #generate mask's timecourse
 MASK=${basedir}/Masks/MFG_func.nii.gz
@@ -29,8 +32,8 @@ TIMECOURSE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/my
 fslmeants -i $DATA -o $TIMECOURSE -m $MASK
 
 #find and replace: run feat for smoothing
-ITEMPLATE=${basedir}/templates/L1_WM_PPI_fixed.fsf
-OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_WM_PPI_fixed.fsf
+ITEMPLATE=${basedir}/templates/L1_WM_PPI.fsf
+OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_${task}_${run}/L1_WM_PPI.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
 -e 's@DATA@'$DATA'@g' \
 -e 's@NVOLUMES@'$NVOLUMES'@g' \

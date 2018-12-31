@@ -6,8 +6,8 @@ MAINOUTPUTDIR=`pwd`/fsl
 
 subj=$1
 
-INPUT01=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_EMOTION_LR/L1_Emotion_PPI.feat
-INPUT02=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_EMOTION_RL/L1_Emotion_PPI.feat
+INPUT1=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_EMOTION_LR/L1_Emotion_PPI.feat
+INPUT2=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_EMOTION_RL/L1_Emotion_PPI.feat
 OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Emotion_PPI
 
 # checking L2 output
@@ -30,8 +30,8 @@ done
 ITEMPLATE=${BASEDIR}/templates/L2_all_PPI.fsf
 OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Emotion_PPI.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
--e 's@INPUT01@'$INPUT01'@g' \
--e 's@INPUT02@'$INPUT02'@g' \
+-e 's@INPUT1@'$INPUT1'@g' \
+-e 's@INPUT2@'$INPUT2'@g' \
 <$ITEMPLATE> $OTEMPLATE
 
 #runs feat on output template
@@ -41,4 +41,3 @@ for C in `seq $NCOPES`; do
   rm -rf ${OUTPUT}.gfeat/cope${C}.feat/filtered_func_data.nii.gz
   rm -rf ${OUTPUT}.gfeat/cope${C}.feat/var_filtered_func_data.nii.gz
 done
-

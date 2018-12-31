@@ -6,8 +6,8 @@ MAINOUTPUTDIR=`pwd`/fsl
 
 subj=$1
 
-INPUT01=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_WM_LR/L1_WM_PPI.feat
-INPUT02=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_WM_RL/L1_WM_PPI.feat
+INPUT1=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_WM_LR/L1_WM_PPI.feat
+INPUT2=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_WM_RL/L1_WM_PPI.feat
 OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_WM_PPI
 
 # checking L2 output
@@ -30,8 +30,8 @@ done
 ITEMPLATE=${BASEDIR}/templates/L2_all_PPI.fsf
 OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_WM_PPI.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
--e 's@INPUT01@'$INPUT01'@g' \
--e 's@INPUT02@'$INPUT02'@g' \
+-e 's@INPUT1@'$INPUT1'@g' \
+-e 's@INPUT2@'$INPUT2'@g' \
 <$ITEMPLATE> $OTEMPLATE
 
 #runs feat on output template

@@ -1,11 +1,9 @@
 #!/bin/bash
 
 BASEDIR=`pwd`
-
 MAINDATADIR=`pwd`/data
 MAINOUTPUTDIR=`pwd`/fsl
 
-##bash L2_Emotion_PPI.sh $subj $task $run
 subj=$1
 
 INPUT01=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_EMOTION_LR/L1_Emotion_PPI.feat
@@ -29,7 +27,7 @@ for run in LR RL; do
 done
 
 #find and replace
-ITEMPLATE=${BASEDIR}/templates/L2_Emo_PPI.fsf
+ITEMPLATE=${BASEDIR}/templates/L2_all_PPI.fsf
 OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_Emotion_PPI.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
 -e 's@INPUT01@'$INPUT01'@g' \
@@ -38,3 +36,9 @@ sed -e 's@OUTPUT@'$OUTPUT'@g' \
 
 #runs feat on output template
 feat $OTEMPLATE
+
+for C in `seq $NCOPES`; do
+  rm -rf ${OUTPUT}.gfeat/cope${C}.feat/filtered_func_data.nii.gz
+  rm -rf ${OUTPUT}.gfeat/cope${C}.feat/var_filtered_func_data.nii.gz
+done
+

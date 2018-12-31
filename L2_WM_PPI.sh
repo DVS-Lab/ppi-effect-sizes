@@ -1,12 +1,9 @@
 #!/bin/bash
 
 BASEDIR=`pwd`
-cd ..
-MAINDATADIR=`pwd`/Data
-MAINOUTPUTDIR=`pwd`/Analysis
-cd $BASEDIR
+MAINDATADIR=`pwd`/fsl
+MAINOUTPUTDIR=`pwd`/fsl
 
-##bash L2_WM_PPI.sh $subj $task $run
 subj=$1
 
 INPUT01=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/tfMRI_WM_LR/L1_WM_PPI.feat
@@ -15,7 +12,7 @@ OUTPUT=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_WM_PPI
 
 # checking L2 output
 NCOPES=7 #check last cope since they are done sequentially
-if [ -e ${OUTPUT}.feat/stats/cope2.nii.gz ]; then
+if [ -e ${OUTPUT}.gfeat/cope${NCOPES}.feat/cluster_mask_zstat1.nii.gz ]; then
   exit
 else
   rm -rf ${OUTPUT}.gfeat
@@ -30,7 +27,7 @@ for run in LR RL; do
 done
 
 #find and replace
-ITEMPLATE=${BASEDIR}/templates/L2_WM_PPI.fsf
+ITEMPLATE=${BASEDIR}/templates/L2_all_PPI.fsf
 OTEMPLATE=${MAINOUTPUTDIR}/${subj}/MNINonLinear/Results/L2_WM_PPI.fsf
 sed -e 's@OUTPUT@'$OUTPUT'@g' \
 -e 's@INPUT01@'$INPUT01'@g' \
@@ -39,3 +36,8 @@ sed -e 's@OUTPUT@'$OUTPUT'@g' \
 
 #runs feat on output template
 feat $OTEMPLATE
+
+for C in `seq $NCOPES`; do
+  rm -rf ${OUTPUT}.gfeat/cope${C}.feat/filtered_func_data.nii.gz
+  rm -rf ${OUTPUT}.gfeat/cope${C}.feat/var_filtered_func_data.nii.gz
+done

@@ -1,0 +1,12 @@
+/ContrastName1	Dep > FamHist 
+/ContrastName2	FamHist > HC 
+/ContrastName3	Dep > HC 
+/NumWaves	3
+/NumContrasts	3
+/PPheights		1.000000e+00	1.000000e+00	1.000000e+00
+/RequiredEffect		0.554	0.498	0.552
+
+/Matrix
+1.000000e+00 -1.000000e+00 0.000000e+00 
+0.000000e+00 1.000000e+00 -1.000000e+00 
+1.000000e+00 0.000000e+00 -1.000000e+00 

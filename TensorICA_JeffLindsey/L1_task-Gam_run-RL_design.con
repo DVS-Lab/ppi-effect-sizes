@@ -1,0 +1,14 @@
+/ContrastName1	rew 
+/ContrastName2	pun 
+/ContrastName3	rew-pun 
+/ContrastName4	pun-rew 
+/NumWaves	2
+/NumContrasts	4
+/PPheights		1.288358e+00	1.287806e+00	1.145358e+00	1.145358e+00
+/RequiredEffect		0.989	1.017	1.002	1.002
+
+/Matrix
+1.000000e+00 0.000000e+00 
+0.000000e+00 1.000000e+00 
+1.000000e+00 -1.000000e+00 
+-1.000000e+00 1.000000e+00 

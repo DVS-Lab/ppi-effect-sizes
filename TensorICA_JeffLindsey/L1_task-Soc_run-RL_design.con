@@ -1,0 +1,10 @@
+/ContrastName1	mental > other 
+/ContrastName2	other > mental 
+/NumWaves	2
+/NumContrasts	2
+/PPheights		1.146182e+00	1.146182e+00
+/RequiredEffect		0.957	0.957
+
+/Matrix
+1.000000e+00 -1.000000e+00 
+-1.000000e+00 1.000000e+00 

@@ -12,7 +12,7 @@ indata=${hcpdatadir}/${sub}/MNINonLinear/Results/tfMRI_${task}_${run}/tfMRI_${ta
 ppidir=/data/projects/ppi-effect-sizes
 
 # aroma stuff
-aromadir=${ppidir}/fsl/100307/MNINonLinear/Results/tfMRI_${task}_${run}/smoothing.feat/ICA_AROMA
+aromadir=${ppidir}/fsl/${sub}/MNINonLinear/Results/tfMRI_${task}_${run}/smoothing.feat/ICA_AROMA
 mask=${aromadir}/mask.nii.gz
 badICs=${aromadir}/classified_motion_ICs.txt
 melodic_mix=${aromadir}/melodic.ica/melodic_mix

@@ -14,11 +14,11 @@ ppidir=/data/projects/ppi-effect-sizes
 # aroma stuff
 aromadir=${ppidir}/fsl/100307/MNINonLinear/Results/tfMRI_${task}_${run}/smoothing.feat/ICA_AROMA
 mask=${aromadir}/mask.nii.gz
-badICs=${aromadir}/ICA_AROMA/classified_motion_ICs.txt
-melodic_mix=${aromadir}/ICA_AROMA/melodic.ica/melodic_mix
-outdata=${aromadir}/ICA_AROMA/denoised_func_data_nonaggr_nosmoothing
+badICs=${aromadir}/classified_motion_ICs.txt
+melodic_mix=${aromadir}/melodic.ica/melodic_mix
+outdata=${aromadir}/denoised_func_data_nonaggr_nosmoothing
 
-# regress out aroma components 
+# regress out aroma components
 if [ ! -e $outdata ]; then
 	echo "denoising $indata"
 	fsl_regfilt -i $indata \

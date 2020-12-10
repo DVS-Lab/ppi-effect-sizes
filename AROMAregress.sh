@@ -19,7 +19,7 @@ melodic_mix=${aromadir}/melodic.ica/melodic_mix
 outdata=${aromadir}/denoised_func_data_nonaggr_nosmoothing
 
 # regress out aroma components
-if [ ! -e $outdata ]; then
+if [ ! -e ${outdata}.nii.gz ]; then
 	echo "denoising $indata"
 	fsl_regfilt -i $indata \
 	    -f $(cat ${badICs}) \

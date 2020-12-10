@@ -12,16 +12,16 @@ cd fsl
 for task in Soc Gam; do
   for run in LR RL; do
 
-    melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-${task}_run-${run}_paths.txt \
-    -o tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_wCovs_new.ica -v --nobet --bgimage=mean_func \
+    melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-${task}_run-${run}_paths_unsmoothed.txt \
+    -o tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_wCovs_new_unsmoothed.ica -v --nobet --bgimage=mean_func \
     --report --guireport=report.html -d 0 \
     --Tdes=${basedir}/TensorICA_JeffLindsey/L1_task-${task}_run-${run}_design.mat --Tcon=${basedir}/TensorICA_JeffLindsey/L1_task-${task}_run-${run}_design.con \
     --Sdes=${basedir}/TensorICA_JeffLindsey/L3_task-${task}_run-${run}_withCovs.mat --Scon=${basedir}/TensorICA_JeffLindsey/L3_task-${task}_run-${run}_withCovs.con \
     --mmthresh=0.5 --Ostats -a tica
 
 
-    melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-${task}_run-${run}_paths.txt \
-    -o tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_new.ica -v --nobet --bgimage=mean_func \
+    melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-${task}_run-${run}_paths_unsmoothed.txt \
+    -o tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_new_unsmoothed.ica -v --nobet --bgimage=mean_func \
     --report --guireport=report.html -d 0 \
     --Tdes=${basedir}/TensorICA_JeffLindsey/L1_task-${task}_run-${run}_design.mat --Tcon=${basedir}/TensorICA_JeffLindsey/L1_task-${task}_run-${run}_design.con \
     --Sdes=${basedir}/TensorICA_JeffLindsey/L3_n279.mat --Scon=${basedir}/TensorICA_JeffLindsey/L3_n279.con \

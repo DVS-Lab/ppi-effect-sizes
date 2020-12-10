@@ -5,7 +5,11 @@ task=$2
 run=$3
 
 # input data
-hcpdatadir=/data/projects/human-connectome-project-openaccess/HCP1200
+if [ $sub -eq 171532 ]; then # accounts for the one broken subject
+  hcpdatadir=/data/projects/hcp_extra/human-connectome-project-openaccess/HCP1200
+else
+  hcpdatadir=/data/projects/human-connectome-project-openaccess/HCP1200
+fi
 indata=${hcpdatadir}/${sub}/MNINonLinear/Results/tfMRI_${task}_${run}/tfMRI_${task}_${run}.nii.gz
 
 # project dir (outputs and some inputs will be beneath here)

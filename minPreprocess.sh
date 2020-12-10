@@ -14,7 +14,7 @@ nvols=`fslnvols ${data}`
 
 # checking output
 if [ -e ${output}.feat/filtered_func_data.nii.gz ]; then
-  echo "output exists, skipping...."
+  #echo "output exists, skipping...."
   exit
 else
 	echo "re-running $sub $task $run" >> re-run_preprocess.log

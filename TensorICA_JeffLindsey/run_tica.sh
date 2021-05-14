@@ -10,13 +10,13 @@ basedir=`pwd`
 cd fsl
 
 
- melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-Soc_paths_unsmoothed.txt \
+ melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-Soc_paths_unsmoothed_merged.txt \
  -o tica_00dim_task-Soc_LindseySubs_unsmoothed_merged.ica -v --nobet --bgimage=mean_func \
  --report --guireport=report.html -d 0 \
  --mmthresh=0.5 --Ostats -a tica &
 
 
- melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-Gam_paths_unsmoothed.txt \
+ melodic -i ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-Gam_paths_unsmoothed_merged.txt \
  -o tica_00dim_task-Gam_LindseySubs_unsmoothed_merged.ica -v --nobet --bgimage=mean_func \
  --report --guireport=report.html -d 0 \
  --mmthresh=0.5 --Ostats -a tica

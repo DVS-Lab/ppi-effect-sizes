@@ -26,18 +26,18 @@ for s in `cat LindseySubs.txt`; do
 	  
 	 
 	 # social
-	 fname_gam_LR=${basedir}/${s}/MNINonLinear/Results/tfMRI_SOCIAL_LR/preprocess_sub-${s}_task-SOCIAL_run-LR_hp-200_sm-0.feat/filtered_func_data.nii.gz
+	 fname_soc_LR=${basedir}/${s}/MNINonLinear/Results/tfMRI_SOCIAL_LR/preprocess_sub-${s}_task-SOCIAL_run-LR_hp-200_sm-0.feat/filtered_func_data.nii.gz
 	 fslmaths $fname_soc_LR -Tmean tmp_mean
 	 fslmaths $fname_soc_LR -Tstd tmp_std
 	 fslmaths $fname_soc_LR -sub tmp_mean -div tmp_std tmp_z_LR
 	 rm -rf tmp_std.nii.gz tmp_mean.nii.gz 
 	 
-	 fname_gam_RL=${basedir}/${s}/MNINonLinear/Results/tfMRI_SOCIAL_RL/preprocess_sub-${s}_task-SOCIAL_run-RL_hp-200_sm-0.feat/filtered_func_data.nii.gz
+	 fname_soc_RL=${basedir}/${s}/MNINonLinear/Results/tfMRI_SOCIAL_RL/preprocess_sub-${s}_task-SOCIAL_run-RL_hp-200_sm-0.feat/filtered_func_data.nii.gz
 	 fslmaths $fname_soc_RL -Tmean tmp_mean
 	 fslmaths $fname_soc_RL -Tstd tmp_std
 	 fslmaths $fname_soc_RL -sub tmp_mean -div tmp_std tmp_z_RL
 	 
-	 fname_gam_merged=${basedir}/${s}/MNINonLinear/Results/sub-${s}_task-SOCIAL_filtered_func_data_merged.nii.gz
+	 fname_soc_merged=${basedir}/${s}/MNINonLinear/Results/sub-${s}_task-SOCIAL_filtered_func_data_merged.nii.gz
 	 rm -rf $fname_soc_merged
 	 fslmerge -t $fname_soc_merged tmp_z_LR.nii.gz tmp_z_RL.nii.gz
 	 echo $fname_soc_merged >> zLindseySubs_task-Soc_paths_unsmoothed_merged.txt

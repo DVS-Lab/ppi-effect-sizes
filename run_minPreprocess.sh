@@ -7,7 +7,7 @@ for subj in `cat TensorICA_JeffLindsey/LindseySubs.txt`; do
 
   		#Manages the number of jobs and cores
   		SCRIPTNAME=minPreprocess.sh
-  		NCORES=25
+  		NCORES=40
   		while [ $(ps -ef | grep -v grep | grep $SCRIPTNAME | wc -l) -ge $NCORES ]; do
   	  		sleep 1m
   		done

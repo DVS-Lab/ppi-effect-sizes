@@ -8,7 +8,7 @@ run=$3
 
 # setting up dirs
 mainoutput=${basedir}/fsl/${sub}/MNINonLinear/Results/tfMRI_${task}_${run}
-output=${mainoutput}/preprocess_sub-${sub}_task-${task}_run-${run}_hp-200_sm-0
+output=${mainoutput}/preprocess_sub-${sub}_task-${task}_run-${run}_hp-200_sm-2
 data=${mainoutput}/smoothing.feat/ICA_AROMA/denoised_func_data_nonaggr_nosmoothing.nii.gz
 nvols=`fslnvols ${data}`
 

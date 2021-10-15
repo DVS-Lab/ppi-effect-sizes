@@ -1,7 +1,7 @@
 #!/bin/sh
 
 task=$1 # Soc Gam
-run=$2 # LR RL
+dim=$2 # 00 25
 
 cd ..
 basedir=`pwd`
@@ -10,14 +10,13 @@ cd fsl
 # Usage: dual_regression <group_IC_maps> <des_norm> <design.mat> <design.con> <n_perm> [--thr] <output_directory> <input1> <input2> <input3> .........
 # e.g.   dual_regression groupICA.gica/groupmelodic.ica/melodic_IC 1 design.mat design.con 500 0 grot `cat groupICA.gica/.filelist`
 
-rm -rf tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_wCovs_new_unsmoothed-concat.ica/dual_regression
-dual_regression tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_wCovs_new_unsmoothed-concat.ica/melodic_IC \
-  1 ${basedir}/TensorICA_JeffLindsey/L3_task-${task}_run-${run}_withCovs.mat ${basedir}/TensorICA_JeffLindsey/L3_task-${task}_run-${run}_withCovs.con 1 \
-  tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_wCovs_new_unsmoothed-concat.ica/dual_regression \
-  `cat ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-${task}_run-${run}_paths_unsmoothed.txt`
+melodicdir=${basedir}/fsl/concat_${dim}dim_task-${task}_LindseySubs_sm-2_merged_z.ica
 
-rm -rf tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_new_unsmoothed-concat.ica/dual_regression
-dual_regression tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_wCovs_new_unsmoothed-concat.ica/melodic_IC \
+# remove old output
+rm -rf ${melodicdir}/dual_regression
+
+# run dr
+dual_regression ${melodicdir}/melodic_IC \
   1 ${basedir}/TensorICA_JeffLindsey/L3_n279.mat ${basedir}/TensorICA_JeffLindsey/L3_n279.con 1 \
-  tica_00dim_task-${task}_run-${run}_LindseySubs_wDesigns_new_unsmoothed-concat.ica/dual_regression \
-  `cat ${basedir}/TensorICA_JeffLindsey/LindseySubs_task-${task}_run-${run}_paths_unsmoothed.txt`
+  ${melodicdir}/dual_regression \
+  `cat ${basedir}/TensorICA_JeffLindsey/zLindseySubs_task-${task}_paths_sm-2_merged.txt`

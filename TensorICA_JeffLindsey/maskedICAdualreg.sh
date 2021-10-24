@@ -22,5 +22,5 @@ ${basedir}/TensorICA_JeffLindsey/leech12_dualregression.sh ${melodicdir}/melodic
   1 ${basedir}/TensorICA_JeffLindsey/L3_n279.mat ${basedir}/TensorICA_JeffLindsey/L3_n279.con 1 \
   ${melodicdir}/dual_regression \
 	${basedir}/TensorICA_JeffLindsey/StriatumMask_atlas.nii \
-	`cat ${masked_list}` \
+	`cat ${masked_list}` _ \
   `cat ${wb_list}`

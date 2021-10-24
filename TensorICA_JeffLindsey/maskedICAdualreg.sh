@@ -18,7 +18,7 @@ melodicdir=${basedir}/fsl/concat_${dim}dim_task-${task}_LindseySubs_sm-2_merged_
 rm -rf ${melodicdir}/dual_regression
 
 # run dr
-bash leech12_dualregression.sh ${melodicdir}/melodic_IC \
+bash ${basedir}/TensorICA_JeffLindsey/leech12_dualregression.sh ${melodicdir}/melodic_IC \
   1 ${basedir}/TensorICA_JeffLindsey/L3_n279.mat ${basedir}/TensorICA_JeffLindsey/L3_n279.con 1 \
   ${melodicdir}/dual_regression \
 	${basedir}/TensorICA_JeffLindsey/StriatumMask_atlas.nii \

@@ -274,3 +274,6 @@
 /data/projects/ppi-effect-sizes/fsl/972566/MNINonLinear/Results/sub-972566_task-GAMBLING_filtered_func_data_merged_striatum.nii.gz
 /data/projects/ppi-effect-sizes/fsl/973770/MNINonLinear/Results/sub-973770_task-GAMBLING_filtered_func_data_merged_striatum.nii.gz
 /data/projects/ppi-effect-sizes/fsl/978578/MNINonLinear/Results/sub-978578_task-GAMBLING_filtered_func_data_merged_striatum.nii.gz
+/data/projects/ppi-effect-sizes/fsl/991267/MNINonLinear/Results/sub-991267_task-GAMBLING_filtered_func_data_merged_striatum.nii.gz
+/data/projects/ppi-effect-sizes/fsl/993675/MNINonLinear/Results/sub-993675_task-GAMBLING_filtered_func_data_merged_striatum.nii.gz
+/data/projects/ppi-effect-sizes/fsl/996782/MNINonLinear/Results/sub-996782_task-GAMBLING_filtered_func_data_merged_striatum.nii.gz
